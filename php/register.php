@@ -2,22 +2,30 @@
 	
 	include 'connect.php';
 
+	function test_input($data){
+		$data = stripslashes($data);
+		$data = trim($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$uname = $_POST['uname'];
-		$pass = $_POST['pass'];
+		$name = test_input($_POST['name']);
+		$email = test_input($_POST['email']);
+		$uname = test_input($_POST['uname']);
+		$pass = test_input($_POST['pass']);
 		
 		$sql = "INSERT INTO users (Name,Email,Username,Password) VALUES (?,?,?,?)";
 		
 		$q = $conn->prepare($sql);
-		$q->execute(array($name,$email,$uname,$pass));
+		$q->bind_param("ssss",$name,$email,$uname,$pass);
+		$q->execute();
+		
+		echo "User Successfully created";
+
+		$q->close();
+		$q->close();
 	}
-
-echo $name.$email.$uname.$pass;
-
-
-
 
 
 
