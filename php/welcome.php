@@ -48,6 +48,9 @@
 				<tr>
 					<td><input type="submit" value="Save"></td>
 				</tr>
+				<tr>
+					<button><a href="logout.php">Logout</a></button>>
+				</tr>
 			</table>
 		</form>			
 	</body>
