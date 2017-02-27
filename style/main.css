@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	display: flex;
+	align-items: center;
+}
+body>div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 98vh;
+	float: left;
+	width: 50vw;
+}
+
+.lmain{
+	background: #111;
+	color: #fff;
+}
+.lmain .btn{
+	color: #fff;
+	border: 2px solid #fff;
+}
+.btn:hover{
+    letter-spacing: 2px;
+}
+input{
+	margin-top:10px;
+	padding: 10px;
+	font-size:20px;
+}
+.rmain{
+	background: #eee;
+	height: 50vh;
+}
+.rmain .btn{
+	border: 2px solid #111;
+}
+
+.btn{
+	display: block;
+	margin: auto;
+	padding: 10px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	background: transparent;
+	margin-top: 30px;
+	transition: all 0.2s linear;
+}
+
+::-webkit-input-placeholder {
+	font:16px 'Ubuntu', sans-serif;
+}
+
+.success{
+	color: green;
+	font-size:16px;
+	font-family: 'Ubuntu';
+}

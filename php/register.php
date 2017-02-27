@@ -24,7 +24,6 @@
 		echo "User Successfully created";
 
 		$q->close();
-		$q->close();
 	}
 
 
