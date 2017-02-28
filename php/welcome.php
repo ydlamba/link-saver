@@ -1,6 +1,8 @@
+
+
 <?php
 	session_start();
-	echo "hi user ".$_SESSION['curr_user'];
+	echo "<p class='welcome'>Welcome ".$_SESSION['curr_user']."</p><br>";
 
 	include 'connect.php';
 
@@ -18,40 +20,44 @@
 	$q2->bind_param("ss",$link,$desc);
 	$q2->execute();
 
+	echo "<div class='fdata'><table><tr><th>Link</th><th>Description</th></tr>";
 	$sql3 = "SELECT * FROM ".$_SESSION['curr_user']." ;";
 	//echo $sql3;
 	
 	$q3 = $conn->query($sql3);
 	if($q3->num_rows > 0 ){
 		while($row = $q3->fetch_assoc()){
-			echo "<p>".$row['Link']."</p><p>".$row['Description']."</p>";
+			//echo "<td>".$row['Link']."</td><td>".$row['Description']."</td>"
+			echo "<tr><td>".$row['Link']."</td><td> ".$row['Description']."</td></tr>";
 		}	
 	}
+	echo "</table></div>";
 
 ?>
+
+
 <!DOCTYPE html>
 	<html>
 	<head>
 		<title>Save link, Save world</title>
+		<link rel="stylesheet" type="text/css" href="../style/welcome.css">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			<table>
 				<tr>
-					<td>Link:</td>
-					<td><input type="text" name="link"></td>
+					<td><input type="text" name="link" placeholder="Link"></td>
 				</tr>
 				<tr>
-					<td>Description:</td>
-					<td><textarea rows="3" cols="17" name="desc"></textarea></td>
+					<td><textarea rows="3" cols="17" name="desc" placeholder="Description"></textarea></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Save"></td>
-				</tr>
-				<tr>
-					<button><a href="logout.php">Logout</a></button>>
+					<td><input type="submit" value="Add" class="add"></td>
 				</tr>
 			</table>
-		</form>			
+		</form>		
+		<button class="logout"><a href="logout.php">Logout</a></button>	
 	</body>
 </html>

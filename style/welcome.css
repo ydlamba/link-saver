@@ -1,0 +1,69 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.welcome{
+	color: green;
+	padding: 10px;
+}
+
+
+.logout a{
+	text-decoration: none;
+	color: #333;
+	font-family:'Ubuntu';
+	font-size: 16px;
+}
+.logout{
+	margin: 10px 10px 0 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: transparent;
+	padding: 10px;
+	border: 2px #eee solid;
+}
+
+form{
+	display: flex;
+	justify-content: center;
+	border: 2px #eee solid;
+	width: 75%;
+	margin: auto;
+}
+form input,form textarea{
+	padding: 10px;
+	width: 30vw;
+	font-size:16px;
+}
+form textarea{
+	height: 150px;
+}
+table{
+	font-size: 16px;
+	font-family: 'Ubuntu';
+	margin: auto;
+	border-collapse: collapse;
+}
+table,th,td{
+	padding: 10px;
+	border: 1px #eee solid;
+}
+.fdata{
+	border: 2px solid #eee;
+	height: 200px;
+}
+.add{
+	width: 8vw;
+	padding: 10px;
+	background: transparent;
+	border: 2px #eee solid;
+	font-size: 16px;
+	font-family: 'Ubuntu';
+	display: block;
+	margin: auto;
+}
+::-webkit-input-placeholder {
+	font:16px 'Ubuntu', sans-serif;
+}
