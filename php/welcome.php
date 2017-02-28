@@ -26,9 +26,9 @@
 	
 	$q3 = $conn->query($sql3);
 	if($q3->num_rows > 0 ){
+		
 		while($row = $q3->fetch_assoc()){
-			//echo "<td>".$row['Link']."</td><td>".$row['Description']."</td>"
-			echo "<tr><td>".$row['Link']."</td><td> ".$row['Description']."</td></tr>";
+			echo "<tr id=".$row['ID']." class='data'><td>".$row['Link']."</td><td> ".$row['Description']."</td><td><input type='button' value='X' onclick='sendReq(".$row['ID'].");'></td></tr>";
 		}	
 	}
 	echo "</table></div>";
@@ -42,11 +42,11 @@
 		<title>Save link, Save world</title>
 		<link rel="stylesheet" type="text/css" href="../style/welcome.css">
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<link rel="shortcut icon" type="image/png" href="../favicon.png">
 	</head>
 	<body>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-			<table>
+			<table class="add_link">
 				<tr>
 					<td><input type="text" name="link" placeholder="Link"></td>
 				</tr>
@@ -59,5 +59,20 @@
 			</table>
 		</form>		
 		<button class="logout"><a href="logout.php">Logout</a></button>	
+		<script type="text/javascript">
+			function sendReq(i){
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function(){
+					if(this.readyState == 4 && this.status == 200){
+						var element = document.getElementById(i);
+						element.outerHTML = "";
+						delete element;
+					}
+				};
+				xhttp.open('POST','delete.php',true);
+				xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhttp.send('todelete='+i);
+			}
+		</script>
 	</body>
 </html>
