@@ -71,3 +71,7 @@ table,th,td{
 ::-webkit-input-placeholder {
 	font:16px 'Ubuntu', sans-serif;
 }
+
+.add,.close{
+	cursor: pointer;
+}

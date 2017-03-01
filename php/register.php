@@ -21,7 +21,7 @@
 		$q->bind_param("ssss",$name,$email,$uname,$pass);
 		$q->execute();
 		
-		echo "User Successfully created";
+		echo " User Successfully created";
 
 		$q->close();
 	}
